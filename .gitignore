@@ -1,0 +1,12 @@
+# Build folder
+_site
+
+# MacOSX folder view cache
+*.DS_Store
+
+# Vim swap files
+*.swp
+*.swo
+_posts/.DS_Store
+vendor
+.jekyll-metadata
