@@ -3,12 +3,29 @@
 
   <!-- Hero Section -->
   <div id="bigHeader" class="relative w-full bg-gray-900">
-    <img
-      src="//wsrv.nl/?url=ssl:mailta.pe/img/{{ page.guestPic }}&w=2000&t=fit&il&q=90&output=webp&default=ssl:mailta.pe/img/{{ page.guestPic }}"
-      alt="{{ page.guest_name }}"
-      class="w-full h-auto object-cover"
-      loading="lazy"
-    />
+    <!-- Blurred background image -->
+    <div class="absolute inset-0 overflow-hidden">
+      <img
+        src="//wsrv.nl/?url=https://personalwebsitemedia.blob.core.windows.net/images/wunna-gunna.jpg&w=2000&t=fit&il&q=90&output=webp&default=https://personalwebsitemedia.blob.core.windows.net/images/wunna-gunna.jpg"
+        alt=""
+        class="w-full h-full object-cover object-center blur-md opacity-30"
+        aria-hidden="true"
+      />
+      <!-- Gradient overlay
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"
+      ></div> -->
+    </div>
+
+    <!-- Main image -->
+    <div class="relative h-full">
+      <img
+        src="//wsrv.nl/?url=https://personalwebsitemedia.blob.core.windows.net/images/wunna-gunna.jpg&w=2000&t=fit&il&q=90&output=webp&default=https://personalwebsitemedia.blob.core.windows.net/images/wunna-gunna.jpg"
+        alt="{{ page.guest_name }}"
+        class="w-full h-full object-scale-down transform scale-[0.98] transition-opacity duration-500 ease-in-out"
+        loading="lazy"
+      />
+    </div>
 
     <div class="max-w-6xl mx-auto px-4">
       <!-- Desktop Navigation -->
