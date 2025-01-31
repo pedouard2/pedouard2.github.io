@@ -1,24 +1,19 @@
-name: Prince Edouard
+# Site Information
+name: your-site-name
 description: 💎
 author: Prince Edouard
-markdown: kramdown
-pygments: false
-highlighter: rouge
+url: ""
+
+# Content Settings
 permalink: /:categories/:title/
-timezone: Europe/Paris
-paginate: 12
 future: true
+paginate: 12
 
-include: [".htaccess", "_headers", "_redirects"]
+# Azure Configuration
+azure_storage:
+  base_url: "https://personalwebsitemedia.blob.core.windows.net"
+  container: "assets" # Assuming this is what we named your container
 
-## kramdown config to force interpretation into html block
-kramdown:
-  parse_block_html: true
-
-exclude: [vendor]
-
-# add rss feed
+# Plugin Support
 plugins:
-  - jekyll-feed
-url: https://mailta.pe
-repository: pedouard2/pedouard2.github.io
+  - jekyll-paginate # Required for pagination to work

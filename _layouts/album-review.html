@@ -1,0 +1,38 @@
+<!-- prettier-ignore -->
+{% assign artist_slug = page.artist | downcase | replace: " ", "-" %} 
+{% assign image_base = "assets/images/artists/" | append: artist_slug %} 
+{% assign full_image_url = site.azure_storage.base_url | append: "/" | append: image_base | append: "/" | append: page.album_id | append: "-cover.jpg" %}
+
+<article>
+  {% include ep-head.html %} {% include topbar.html %}
+
+  <!-- Hero section - displays the album artwork -->
+  <div class="relative w-full bg-gray-900">
+    <!-- Background with CSS blur -->
+    <div class="absolute inset-0 overflow-hidden">
+      <img
+        src="{{ full_image_url }}"
+        alt=""
+        class="w-full h-full object-cover object-center opacity-30 blur-md"
+        aria-hidden="true"
+      />
+    </div>
+
+    <!-- Main album artwork using wsrv.nl for caching -->
+    <div class="relative h-full">
+      <img
+        src="//wsrv.nl/?url={{ full_image_url | url_encode }}"
+        alt="{{ page.title }} by {{ page.artist }}"
+        class="w-full h-full object-scale-down"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <header>
+    <h1>{{ page.title }}</h1>
+    <time>{{ page.date | date: "%B %d, %Y" }}</time>
+  </header>
+
+  <div class="content">{{ content }}</div>
+</article>
