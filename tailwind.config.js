@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mont: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
+        mont: ["Mont"],
       },
       colors: {
         lightblue: "#92DCE5",

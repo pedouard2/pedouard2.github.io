@@ -2035,6 +2035,9 @@
   .align-top {
     vertical-align: top;
   }
+  .font-\[Mont\] {
+    font-family: Mont;
+  }
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
@@ -2657,6 +2660,12 @@
       color: var(--color-gray-950);
     }
   }
+}
+@font-face {
+  font-family: "Mont";
+  src: url("/assets/fonts/mont/Mont-HeavyDEMO.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
 }
 @keyframes spin {
   to {

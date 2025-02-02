@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Mont";
+  src: url("/assets/fonts/mont/Mont-HeavyDEMO.otf") format("opentype");
+  font-weight: 400; /* ExtraLight typically uses 200 */
+  font-style: normal;
+}
