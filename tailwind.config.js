@@ -13,6 +13,9 @@ module.exports = {
       colors: {
         lightblue: "#92DCE5",
       },
+      transitionDuration: {
+        600: "600ms",
+      },
     },
   },
 };

@@ -1,14 +1,16 @@
 <!-- prettier-ignore -->
-{% assign artist_slug = page.artist | downcase | replace: " ", "-" %} 
-{% assign image_base = "assets/images/artists/" | append: artist_slug %} 
-{% assign full_image_url = site.azure_storage.base_url | append: "/" | append: image_base | append: "/" | append: page.album_id | append: "-cover.jpg" %}
+{% assign artist_slug = page.artist | downcase | replace: " ", "-" %}
+{% assign image_base = "assets/images/artists/" | append: artist_slug %}
+{% assign full_image_url = site.azure_storage.base_url | append: "/" | append: image_base| append: "/" | append: page.album_id | append: "-cover.jpg" %}
+{% assign alternate_image_url = site.azure_storage.base_url | append: "/" | append: image_base| append: "/" | append: page.album_id | append: "-cover-alternate.jpg" %}
+
+{% include ep-head.html %}
+{% include topbar.html %}
 
 <article class="prose prose-lg mx-auto">
-  {% include ep-head.html %} {% include topbar.html %}
-
-  <!-- Hero section - displays the album artwork -->
-  <div class="relative w-full bg-gray-900">
-    <!-- Background with CSS blur -->
+  <!-- Main background container with controlled height -->
+  <div class="relative w-full bg-gray-900 h-auto overflow-hidden">
+    <!-- Background blur container with absolute positioning -->
     <div class="absolute inset-0 overflow-hidden">
       <img
         src="//wsrv.nl/?url={{ full_image_url | url_encode }}"
@@ -18,21 +20,49 @@
       />
     </div>
 
-    <!-- Main album artwork -->
-    <div class="relative h-full">
-      <img
-        src="//wsrv.nl/?url={{ full_image_url | url_encode }}"
-        alt="{{ page.title }} by {{ page.artist }}"
-        class="w-full h-full object-scale-down"
-        loading="lazy"
-      />
+    <!-- Book container with center alignment -->
+    <div class="block text-center py-8">
+      <div
+        id="book"
+        class="book peel relative w-[500px] h-[667px] bg-white border border-gray-300 mx-auto"
+      >
+        <!-- Top layer (front cover) -->
+        <div class="peel-top absolute inset-0">
+          <img
+            src="//wsrv.nl/?url={{ full_image_url | url_encode }}"
+            alt="{{ page.title }} by {{ page.artist }}"
+            class="w-full h-full object-cover object-center select-none pointer-events-none"
+            loading="lazy"
+            draggable="false"
+          />
+        </div>
+
+        <!-- Back layer (flipped cover) -->
+        <div class="peel-back absolute inset-0">
+          <img
+            src="//wsrv.nl/?url={{ full_image_url | url_encode }}"
+            alt="{{ page.title }} by {{ page.artist }}"
+            class="w-full h-full object-cover object-center select-none pointer-events-none scale-x-[-1]"
+            loading="lazy"
+            draggable="false"
+          />
+        </div>
+
+        <!-- Bottom layer (alternate artwork) -->
+        <div class="peel-bottom absolute inset-0">
+          <img
+            src="//wsrv.nl/?url={{ alternate_image_url | url_encode }}"
+            alt="{{ page.title }} alternate artwork"
+            class="w-full h-full object-cover object-center select-none pointer-events-none"
+            loading="lazy"
+            draggable="false"
+          />
+        </div>
+      </div>
     </div>
   </div>
-
-  <header>
-    <h1>{{ page.title }}</h1>
-    <time>{{ page.date | date: "%B %d, %Y" }}</time>
-  </header>
-
-  <div class="content">{{ content }}</div>
 </article>
+
+{% include footer.html %}
+<script src="/assets/js/peel.js"></script>
+<script src="/assets/js/artwork-peel.js"></script>
