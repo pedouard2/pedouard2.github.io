@@ -7,7 +7,7 @@
 {% include ep-head.html %}
 {% include topbar.html %}
 
-<article class="prose prose-lg mx-auto">
+<div id="main-container" class="prose prose-lg mx-auto">
   <!-- Main background container with controlled height -->
   <div class="relative w-full bg-gray-900 h-auto overflow-hidden">
     <!-- Background blur container with absolute positioning -->
@@ -61,8 +61,13 @@
       </div>
     </div>
   </div>
-</article>
 
+  <div class="max-w-4xl mx-auto px-4">
+    <article class="prose prose-lg tracking-wide lg:prose-xl">
+      {{ content | markdownify }}
+    </article>
+  </div>
+</div>
 {% include footer.html %}
 <script src="/assets/js/peel.js"></script>
 <script src="/assets/js/artwork-peel.js"></script>
