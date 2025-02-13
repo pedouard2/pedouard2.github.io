@@ -6,3 +6,15 @@
   font-weight: 400; /* ExtraLight typically uses 200 */
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Coolvetica";
+  src: url("/assets/fonts/coolvetica/Coolvetica\ Rg.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Momentz";
+  src: url("/assets/fonts/momentz/Momentz.otf");
+}
