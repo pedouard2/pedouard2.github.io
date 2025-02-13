@@ -7,31 +7,28 @@
 {% include ep-head.html %}
 {% include topbar.html %}
 
-<div id="main-container" class="prose prose-lg mx-auto">
+<div id="main-container" class="mx-auto">
   <!-- Main background container with controlled height -->
-  <div class="relative w-full bg-gray-900 h-auto overflow-hidden">
+  <div class="relative w-full bg-[#fefae0] h-auto overflow-hidden">
     <!-- Background blur container with absolute positioning -->
     <div class="absolute inset-0 overflow-hidden">
       <img
         src="//wsrv.nl/?url={{ full_image_url | url_encode }}"
         alt=""
-        class="w-full h-full object-cover object-center opacity-30 blur-md"
+        class="w-full h-full object-cover object-center opacity-60"
         aria-hidden="true"
       />
     </div>
 
     <!-- Book container with center alignment -->
     <div class="block text-center py-8">
-      <div
-        id="book"
-        class="book peel relative w-[500px] h-[667px] bg-white border border-gray-300 mx-auto"
-      >
+      <div id="book" class="book peel relative w-[776px] h-[776px] mx-auto">
         <!-- Top layer (front cover) -->
         <div class="peel-top absolute inset-0">
           <img
             src="//wsrv.nl/?url={{ full_image_url | url_encode }}"
             alt="{{ page.title }} by {{ page.artist }}"
-            class="w-full h-full object-cover object-center select-none pointer-events-none"
+            class="w-full h-full object-cover object-center select-none cursor-grab"
             loading="lazy"
             draggable="false"
           />
@@ -42,7 +39,7 @@
           <img
             src="//wsrv.nl/?url={{ full_image_url | url_encode }}"
             alt="{{ page.title }} by {{ page.artist }}"
-            class="w-full h-full object-cover object-center select-none pointer-events-none scale-x-[-1]"
+            class="w-full h-full object-cover object-center select-none scale-x-[-1] cursor-grab"
             loading="lazy"
             draggable="false"
           />
@@ -62,8 +59,11 @@
     </div>
   </div>
 
-  <div class="max-w-4xl mx-auto px-4">
-    <article class="prose prose-xl tracking-wide lg:prose-2xl font-[Mont]">
+  <div class="max-w-5xl mx-auto px-8">
+    <article class="font-[Coolvetica] leading-relaxed space-y-6 text-gray-800">
+      <h1 class="font-[Momentz] text-center text-4xl">
+        {{ page.title }} by {{ page.artist }}
+      </h1>
       {{ content | markdownify }}
     </article>
   </div>

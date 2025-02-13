@@ -1,5 +1,6 @@
 ---
 ---
+{% include topbar.html %}
 
 <!DOCTYPE html>
 <html>
@@ -15,17 +16,7 @@
   <body class="bg-gray-900 text-white">
     {%- assign latest_post = site.posts[0] -%}
 
-    <header class="bg-gray-800 p-6">
-      <nav class="max-w-6xl mx-auto flex justify-between items-center">
-        <div class="text-white text-xl font-bold">YourName</div>
-        <div class="flex gap-6">
-          <a href="{{ latest_post.url }}" class="text-white hover:text-gray-300"
-            >Music</a
-          >
-          <a href="/blog" class="text-white hover:text-gray-300">Blog</a>
-        </div>
-      </nav>
-    </header>
+
 
     <main class="max-w-6xl mx-auto px-4 py-12">
       <h1 class="text-4xl font-bold mb-8">Welcome to My Portfolio</h1>
